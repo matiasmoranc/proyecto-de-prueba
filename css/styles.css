@@ -1,0 +1,228 @@
+:root {
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #FFC107;
+    --secundario: #0097A7;
+    --gris: #757575;
+    --grisClaro: #DFE9F5;
+}
+
+/* Globales */
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory; /* para que se deslice y pare en las seccones que queremos */
+}
+*, *:before, *:after { 
+    box-sizing: inherit;
+} 
+body {
+    font-size:  16px;
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%); /* fondo degrades, to top: desde abajo, gris desde 0 hasta banco 1oo% de la pantalla*/
+}
+.contenedor {
+    max-width: 120rem; /* maximo 120rem */
+    margin: 0 auto;
+}
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem;
+    margin-top:  3rem; 
+    font-size: 2rem; /* tamano de la fuente */
+    text-decoration: none; /* elimina la linea de abajo */
+    text-transform: uppercase; /* pone el texto en mayusculas */
+    font-weight: bold; /* negrita, bold es igual a 700 */
+    border-radius: .5rem; /* esquinas redondeadas */
+    width: 90%; /* que ocupe 90% d la pantalla */
+    text-align: center; /* texto centrado */
+    border: none;
+}
+@media (min-width: 768px) { 
+    .boton {
+        width: auto;
+    }
+}
+.boton:hover { /* lo que pasa cuando me paro sobre el */
+    cursor: pointer; /* para  que aparezca la manito */
+}
+.sombra {
+    box-shadow: 0px 5px 15px 0px rgba(86,86,86,0.28);
+    background-color: var(--blanco);
+    padding: 2rem; /* espacio de los elementos con los 4 bordes */
+    border-radius: 1rem;
+}
+
+/* Tipografia */
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 2.8rem;
+}
+h3 {
+    font-size: 1.8rem;
+}
+h1,h2,h3 {
+    text-align: center;
+}
+
+/* Titulos */
+.titulo span {
+    font-size: 2rem;
+}
+
+/** Utilidades **/
+.w-100 {
+    width: 100%;
+}
+@media (min-width: 768px) { 
+    .w-sm-100 {
+        width: auto;
+    }
+ }
+.alinear-derecha {
+ justify-content: flex-end;
+}
+.flex {
+    display: flex;
+}
+/* Navegacion Principal */
+.nav-bg {
+    background-color: var(--secundario);
+}
+.navegacion-principal {
+    display: flex;
+    flex-direction: column; /* elementos en forma de columna */
+    justify-content: space-between; /* alinea en forma horizontal */
+} 
+@media (min-width: 768px) { /*480 telefono, 768 tablet, 1140 laptop, 1400 mas grande */
+    .navegacion-principal {
+        flex-direction: row; /* apartir de los 768pc elementos en forma de fila */
+        justify-content: space-between;
+    }
+}
+
+.navegacion-principal a {
+    display: block; /* que el enlace tome todo el espacio*/
+    text-align: center; /* que se centre*/
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 700;   /* para que este en negrita */
+    padding: 1rem;  /*engorda el elemento de aafuera hacia adentro */
+} 
+
+.navegacion-principal a:hover {      /* lo que se dispara cuando me posiciono sobre el*/
+    background-color: var(--primario);  /*  color de fondo */
+    color: var(--oscuro);
+} 
+
+/* Hero */
+ .hero {
+    background-image: url(../img/fondo.jpg);
+    background-repeat: no-repeat;  /*no repetir img*/
+    background-size: cover;      /* que ocupe todo el tamaño */ 
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem; /* espacio entre el hero y la sombra */
+}
+.contenido-hero {
+    position: absolute;
+    background-color: rgb( 0 0 0 / 70% );  /*  tranparencia con fondo negro*/
+    width: 100%;
+    height: 100%;       /* para que ocupe el total del .hero(padre)*/
+
+    display: flex;  /*agrega las propiedades de flexbox */
+    flex-direction: column; /* alinea horizontalmente  y con grow aliena vertical*/
+    align-items: center; /* centra el contenido hotisontamente porq esta en column, sino seria vertical */
+    justify-content: center;  /* alinea verticalmente, y lo mismo q el anterior */
+}
+.contenido-hero h2,
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center; /* aqui es un punto donde se detiene */
+    scroll-snap-stop: always;
+}
+/* Servicios */
+@media (min-width: 768px) { 
+    .servicios {
+    display: grid;
+      grid-template-columns: repeat(3, 1fr); /*3 columnas de 1 fraccion */
+      column-gap: 1rem; /*separacion de las columnas */
+    }
+}
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+}
+.servicio h3 {
+    color: var(--secundario);
+    font-weight: normal; /* sin negrita, por defecto los heading tienen negrita ( bold) */
+}
+.servicio p {
+    line-height: 2; /* distancia del interlineado */
+    text-align: center; /* central el texto */
+}
+.servicio .iconos {
+    height: 15rem; /* altura */
+    width: 15rem;   /* ancho */
+    background-color: var(--primario);
+    border-radius: 50%; /* circulo */
+    display: flex; 
+    justify-content: center; /* centra horizontalmente */
+    align-items: center; /* centra verticalme */
+}
+
+/* Contacto */
+.formulario {
+    background-color: var(--gris);
+    width: min( 60rem, 100%); /* toma 2 valores y utiliza el mas pequeño */
+    margin: 0 auto; /* centrar horizontalmente */
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset {
+    border: none;
+}
+
+.formulario legend {
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase; /* mayusculas */
+    font-weight: 700; /* negrita */
+    margin-bottom: 2rem; /*que se separe el tecto del primer imput */
+    color: var(--primario);
+}
+
+.contenedor-campos {
+
+}
+
+.campo {
+    margin-bottom: 1rem; /* separacion hacia abajo */
+}
+
+.campo label {
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;  /* cada label toma todo el espacio disponible */
+}
+
+.input-text {
+    width: 100%; /* que ocupe el 100% */
+    border:  none;
+    padding: 1.5rem;
+    border-radius: .5rem;
+}
+.derechos {
+    text-align: center;
+}
