@@ -11,7 +11,7 @@
 html {
     font-size: 62.5%;
     box-sizing: border-box;
-     /* scroll-snap-type: y mandatory;  para que se deslice y pare en las seccones que queremos */
+    scroll-snap-type: y mandatory;  para que se deslice y pare en las seccones que queremos 
 }
 *, *:before, *:after { 
     box-sizing: inherit;
@@ -143,13 +143,12 @@ h1,h2,h3 {
 .contenido-hero p {
     color: var(--blanco);
 }
-
-/* .servicios,
+ .servicios,
 .navegacion-principal,
 .formulario {
     scroll-snap-align: center;  aqui es un punto donde se detiene 
     scroll-snap-stop: always;
-} */
+} 
 /* Servicios */
 @media (min-width: 768px) { 
     .servicios {
